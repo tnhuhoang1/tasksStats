@@ -1,0 +1,9 @@
+E:\tasksStats\Tasks\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+E:\tasksStats\Tasks\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+E:\tasksStats\Tasks\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+E:\tasksStats\Tasks\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+E:\tasksStats\Tasks\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+E:\tasksStats\Tasks\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+E:\tasksStats\Tasks\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+E:\tasksStats\Tasks\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+E:\tasksStats\Tasks\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
