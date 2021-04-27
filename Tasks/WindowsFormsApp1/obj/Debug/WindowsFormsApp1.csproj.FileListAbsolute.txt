@@ -7,3 +7,4 @@ E:\tasksStats\Tasks\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateR
 E:\tasksStats\Tasks\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 E:\tasksStats\Tasks\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 E:\tasksStats\Tasks\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+E:\tasksStats\Tasks\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.TaskForm.resources
