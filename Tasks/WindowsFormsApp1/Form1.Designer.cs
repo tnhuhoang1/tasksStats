@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1 {
     partial class TaskForm {
+
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -31,14 +34,8 @@ namespace WindowsFormsApp1 {
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskForm));
-            this.mainContentPanel = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.leftSideNavPanel = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.statsNav = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.scheduleNav = new System.Windows.Forms.Panel();
@@ -47,44 +44,190 @@ namespace WindowsFormsApp1 {
             this.taskNav = new System.Windows.Forms.Panel();
             this.taskLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.mainTaskPanel = new System.Windows.Forms.Panel();
+            this.mainContentPanel = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.topMainPanel = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.ramProgress = new System.Windows.Forms.ProgressBar();
-            this.ramPicture = new System.Windows.Forms.PictureBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.counterPanel = new System.Windows.Forms.Panel();
+            this.cpuPanel = new System.Windows.Forms.Panel();
+            this.cpuCounterLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cpuProgress = new System.Windows.Forms.ProgressBar();
             this.cpuPicture = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.ramPanel = new System.Windows.Forms.Panel();
+            this.ramCounterLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.ramProgress = new System.Windows.Forms.ProgressBar();
+            this.ramPicture = new System.Windows.Forms.PictureBox();
             this.backgroundPanel = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.backgroundLabel = new System.Windows.Forms.Label();
+            this.backgroundCounterLabel = new System.Windows.Forms.Label();
             this.pictureBackground = new System.Windows.Forms.PictureBox();
             this.foregroundPannel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.foregroundLabel = new System.Windows.Forms.Label();
+            this.foregroundCounterLabel = new System.Windows.Forms.Label();
             this.pictureForeground = new System.Windows.Forms.PictureBox();
-            this.mainContentPanel.SuspendLayout();
             this.leftSideNavPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.statsNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.scheduleNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.taskNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.mainTaskPanel.SuspendLayout();
+            this.mainContentPanel.SuspendLayout();
             this.topMainPanel.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ramPicture)).BeginInit();
-            this.panel6.SuspendLayout();
+            this.counterPanel.SuspendLayout();
+            this.cpuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpuPicture)).BeginInit();
+            this.ramPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ramPicture)).BeginInit();
             this.backgroundPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBackground)).BeginInit();
             this.foregroundPannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureForeground)).BeginInit();
             this.SuspendLayout();
+            // 
+            // leftSideNavPanel
+            // 
+            this.leftSideNavPanel.BackColor = System.Drawing.Color.White;
+            this.leftSideNavPanel.Controls.Add(this.statsNav);
+            this.leftSideNavPanel.Controls.Add(this.scheduleNav);
+            this.leftSideNavPanel.Controls.Add(this.taskNav);
+            this.leftSideNavPanel.Location = new System.Drawing.Point(0, 0);
+            this.leftSideNavPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.leftSideNavPanel.Name = "leftSideNavPanel";
+            this.leftSideNavPanel.Size = new System.Drawing.Size(256, 480);
+            this.leftSideNavPanel.TabIndex = 1;
+            // 
+            // statsNav
+            // 
+            this.statsNav.BackColor = System.Drawing.Color.Transparent;
+            this.statsNav.Controls.Add(this.label1);
+            this.statsNav.Controls.Add(this.pictureBox3);
+            this.statsNav.Location = new System.Drawing.Point(12, 128);
+            this.statsNav.Margin = new System.Windows.Forms.Padding(16);
+            this.statsNav.Name = "statsNav";
+            this.statsNav.Size = new System.Drawing.Size(234, 50);
+            this.statsNav.TabIndex = 3;
+            this.statsNav.Click += new System.EventHandler(this.statsNav_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label1.Location = new System.Drawing.Point(44, 9);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(8);
+            this.label1.Size = new System.Drawing.Size(85, 32);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Statistics";
+            this.label1.Click += new System.EventHandler(this.statsNav_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
+            this.pictureBox3.Location = new System.Drawing.Point(9, 9);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.statsNav_Click);
+            // 
+            // scheduleNav
+            // 
+            this.scheduleNav.BackColor = System.Drawing.Color.Transparent;
+            this.scheduleNav.Controls.Add(this.scheduleLabel);
+            this.scheduleNav.Controls.Add(this.pictureBox2);
+            this.scheduleNav.Location = new System.Drawing.Point(12, 71);
+            this.scheduleNav.Margin = new System.Windows.Forms.Padding(16);
+            this.scheduleNav.Name = "scheduleNav";
+            this.scheduleNav.Size = new System.Drawing.Size(234, 50);
+            this.scheduleNav.TabIndex = 2;
+            this.scheduleNav.Click += new System.EventHandler(this.scheduleNav_Click);
+            // 
+            // scheduleLabel
+            // 
+            this.scheduleLabel.AutoSize = true;
+            this.scheduleLabel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scheduleLabel.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.scheduleLabel.Location = new System.Drawing.Point(44, 9);
+            this.scheduleLabel.Name = "scheduleLabel";
+            this.scheduleLabel.Padding = new System.Windows.Forms.Padding(8);
+            this.scheduleLabel.Size = new System.Drawing.Size(82, 32);
+            this.scheduleLabel.TabIndex = 1;
+            this.scheduleLabel.Text = "Schedule";
+            this.scheduleLabel.Click += new System.EventHandler(this.scheduleNav_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(9, 9);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.scheduleNav_Click);
+            // 
+            // taskNav
+            // 
+            this.taskNav.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.taskNav.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.taskNav.Controls.Add(this.taskLabel);
+            this.taskNav.Controls.Add(this.pictureBox1);
+            this.taskNav.Location = new System.Drawing.Point(12, 12);
+            this.taskNav.Margin = new System.Windows.Forms.Padding(16);
+            this.taskNav.Name = "taskNav";
+            this.taskNav.Size = new System.Drawing.Size(234, 50);
+            this.taskNav.TabIndex = 1;
+            this.taskNav.Click += new System.EventHandler(this.taskNav_Click);
+            // 
+            // taskLabel
+            // 
+            this.taskLabel.AutoSize = true;
+            this.taskLabel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.taskLabel.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.taskLabel.Location = new System.Drawing.Point(44, 9);
+            this.taskLabel.Name = "taskLabel";
+            this.taskLabel.Padding = new System.Windows.Forms.Padding(8);
+            this.taskLabel.Size = new System.Drawing.Size(60, 32);
+            this.taskLabel.TabIndex = 1;
+            this.taskLabel.Text = "Tasks";
+            this.taskLabel.Click += new System.EventHandler(this.taskNav_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(9, 9);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.taskNav_Click);
+            // 
+            // mainTaskPanel
+            // 
+            this.mainTaskPanel.Controls.Add(this.mainContentPanel);
+            this.mainTaskPanel.Controls.Add(this.topMainPanel);
+            this.mainTaskPanel.Location = new System.Drawing.Point(265, 0);
+            this.mainTaskPanel.Name = "mainTaskPanel";
+            this.mainTaskPanel.Size = new System.Drawing.Size(675, 440);
+            this.mainTaskPanel.TabIndex = 3;
+            this.mainTaskPanel.Layout += new System.Windows.Forms.LayoutEventHandler(this.mainTaskPanel_Layout);
             // 
             // mainContentPanel
             // 
@@ -93,12 +236,12 @@ namespace WindowsFormsApp1 {
             this.mainContentPanel.Controls.Add(this.panel9);
             this.mainContentPanel.Controls.Add(this.panel8);
             this.mainContentPanel.Controls.Add(this.panel7);
-            this.mainContentPanel.Location = new System.Drawing.Point(272, 137);
+            this.mainContentPanel.Location = new System.Drawing.Point(7, 139);
             this.mainContentPanel.Margin = new System.Windows.Forms.Padding(16);
             this.mainContentPanel.Name = "mainContentPanel";
             this.mainContentPanel.Padding = new System.Windows.Forms.Padding(16);
             this.mainContentPanel.Size = new System.Drawing.Size(663, 291);
-            this.mainContentPanel.TabIndex = 0;
+            this.mainContentPanel.TabIndex = 4;
             // 
             // panel11
             // 
@@ -150,207 +293,46 @@ namespace WindowsFormsApp1 {
             this.panel7.Size = new System.Drawing.Size(232, 128);
             this.panel7.TabIndex = 1;
             // 
-            // leftSideNavPanel
-            // 
-            this.leftSideNavPanel.BackColor = System.Drawing.Color.White;
-            this.leftSideNavPanel.Controls.Add(this.panel1);
-            this.leftSideNavPanel.Controls.Add(this.scheduleNav);
-            this.leftSideNavPanel.Controls.Add(this.taskNav);
-            this.leftSideNavPanel.Location = new System.Drawing.Point(0, 0);
-            this.leftSideNavPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.leftSideNavPanel.Name = "leftSideNavPanel";
-            this.leftSideNavPanel.Size = new System.Drawing.Size(256, 480);
-            this.leftSideNavPanel.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Location = new System.Drawing.Point(12, 128);
-            this.panel1.Margin = new System.Windows.Forms.Padding(16);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(234, 50);
-            this.panel1.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(44, 9);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(8);
-            this.label1.Size = new System.Drawing.Size(85, 32);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Statistics";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(9, 9);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
-            // scheduleNav
-            // 
-            this.scheduleNav.BackColor = System.Drawing.Color.Transparent;
-            this.scheduleNav.Controls.Add(this.scheduleLabel);
-            this.scheduleNav.Controls.Add(this.pictureBox2);
-            this.scheduleNav.Location = new System.Drawing.Point(12, 71);
-            this.scheduleNav.Margin = new System.Windows.Forms.Padding(16);
-            this.scheduleNav.Name = "scheduleNav";
-            this.scheduleNav.Size = new System.Drawing.Size(234, 50);
-            this.scheduleNav.TabIndex = 2;
-            // 
-            // scheduleLabel
-            // 
-            this.scheduleLabel.AutoSize = true;
-            this.scheduleLabel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scheduleLabel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.scheduleLabel.Location = new System.Drawing.Point(44, 9);
-            this.scheduleLabel.Name = "scheduleLabel";
-            this.scheduleLabel.Padding = new System.Windows.Forms.Padding(8);
-            this.scheduleLabel.Size = new System.Drawing.Size(82, 32);
-            this.scheduleLabel.TabIndex = 1;
-            this.scheduleLabel.Text = "Schedule";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(9, 9);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // taskNav
-            // 
-            this.taskNav.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.taskNav.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.taskNav.Controls.Add(this.taskLabel);
-            this.taskNav.Controls.Add(this.pictureBox1);
-            this.taskNav.Location = new System.Drawing.Point(12, 12);
-            this.taskNav.Margin = new System.Windows.Forms.Padding(16);
-            this.taskNav.Name = "taskNav";
-            this.taskNav.Size = new System.Drawing.Size(234, 50);
-            this.taskNav.TabIndex = 1;
-            this.taskNav.Click += new System.EventHandler(this.taskNav_Click);
-            // 
-            // taskLabel
-            // 
-            this.taskLabel.AutoSize = true;
-            this.taskLabel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.taskLabel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.taskLabel.Location = new System.Drawing.Point(44, 9);
-            this.taskLabel.Name = "taskLabel";
-            this.taskLabel.Padding = new System.Windows.Forms.Padding(8);
-            this.taskLabel.Size = new System.Drawing.Size(60, 32);
-            this.taskLabel.TabIndex = 1;
-            this.taskLabel.Text = "Tasks";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(9, 9);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // topMainPanel
             // 
-            this.topMainPanel.Controls.Add(this.panel5);
-            this.topMainPanel.Controls.Add(this.panel6);
-            this.topMainPanel.Controls.Add(this.panel4);
+            this.topMainPanel.Controls.Add(this.counterPanel);
             this.topMainPanel.Controls.Add(this.backgroundPanel);
             this.topMainPanel.Controls.Add(this.foregroundPannel);
-            this.topMainPanel.Location = new System.Drawing.Point(272, 12);
+            this.topMainPanel.Location = new System.Drawing.Point(7, 11);
             this.topMainPanel.Margin = new System.Windows.Forms.Padding(16);
             this.topMainPanel.Name = "topMainPanel";
             this.topMainPanel.Padding = new System.Windows.Forms.Padding(16);
             this.topMainPanel.Size = new System.Drawing.Size(663, 120);
-            this.topMainPanel.TabIndex = 2;
+            this.topMainPanel.TabIndex = 3;
             // 
-            // panel5
+            // counterPanel
             // 
-            this.panel5.Controls.Add(this.label6);
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.ramProgress);
-            this.panel5.Controls.Add(this.ramPicture);
-            this.panel5.Location = new System.Drawing.Point(263, 9);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(394, 40);
-            this.panel5.TabIndex = 3;
+            this.counterPanel.Controls.Add(this.cpuPanel);
+            this.counterPanel.Controls.Add(this.ramPanel);
+            this.counterPanel.Location = new System.Drawing.Point(263, 9);
+            this.counterPanel.Name = "counterPanel";
+            this.counterPanel.Size = new System.Drawing.Size(397, 100);
+            this.counterPanel.TabIndex = 2;
             // 
-            // label6
+            // cpuPanel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(352, 4);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(30, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "52 %";
+            this.cpuPanel.Controls.Add(this.cpuCounterLabel);
+            this.cpuPanel.Controls.Add(this.label4);
+            this.cpuPanel.Controls.Add(this.cpuProgress);
+            this.cpuPanel.Controls.Add(this.cpuPicture);
+            this.cpuPanel.Location = new System.Drawing.Point(3, 57);
+            this.cpuPanel.Name = "cpuPanel";
+            this.cpuPanel.Size = new System.Drawing.Size(394, 40);
+            this.cpuPanel.TabIndex = 4;
             // 
-            // label5
+            // cpuCounterLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(52, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "RAM";
-            // 
-            // ramProgress
-            // 
-            this.ramProgress.Location = new System.Drawing.Point(52, 3);
-            this.ramProgress.Name = "ramProgress";
-            this.ramProgress.Size = new System.Drawing.Size(286, 16);
-            this.ramProgress.TabIndex = 2;
-            this.ramProgress.Value = 52;
-            // 
-            // ramPicture
-            // 
-            this.ramPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ramPicture.Image = ((System.Drawing.Image)(resources.GetObject("ramPicture.Image")));
-            this.ramPicture.Location = new System.Drawing.Point(0, -1);
-            this.ramPicture.Margin = new System.Windows.Forms.Padding(0);
-            this.ramPicture.Name = "ramPicture";
-            this.ramPicture.Size = new System.Drawing.Size(40, 40);
-            this.ramPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ramPicture.TabIndex = 1;
-            this.ramPicture.TabStop = false;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label7);
-            this.panel6.Controls.Add(this.label4);
-            this.panel6.Controls.Add(this.cpuProgress);
-            this.panel6.Controls.Add(this.cpuPicture);
-            this.panel6.Location = new System.Drawing.Point(263, 69);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(394, 40);
-            this.panel6.TabIndex = 4;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(352, 6);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(30, 13);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "52 %";
+            this.cpuCounterLabel.AutoSize = true;
+            this.cpuCounterLabel.Location = new System.Drawing.Point(352, 6);
+            this.cpuCounterLabel.Name = "cpuCounterLabel";
+            this.cpuCounterLabel.Size = new System.Drawing.Size(30, 13);
+            this.cpuCounterLabel.TabIndex = 7;
+            this.cpuCounterLabel.Text = "52 %";
             // 
             // label4
             // 
@@ -366,6 +348,7 @@ namespace WindowsFormsApp1 {
             this.cpuProgress.Location = new System.Drawing.Point(52, 3);
             this.cpuProgress.Name = "cpuProgress";
             this.cpuProgress.Size = new System.Drawing.Size(286, 16);
+            this.cpuProgress.Step = 100;
             this.cpuProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.cpuProgress.TabIndex = 3;
             this.cpuProgress.Value = 20;
@@ -382,45 +365,91 @@ namespace WindowsFormsApp1 {
             this.cpuPicture.TabIndex = 1;
             this.cpuPicture.TabStop = false;
             // 
-            // panel4
+            // ramPanel
             // 
-            this.panel4.Location = new System.Drawing.Point(263, 9);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(397, 100);
-            this.panel4.TabIndex = 2;
+            this.ramPanel.Controls.Add(this.ramCounterLabel);
+            this.ramPanel.Controls.Add(this.label5);
+            this.ramPanel.Controls.Add(this.ramProgress);
+            this.ramPanel.Controls.Add(this.ramPicture);
+            this.ramPanel.Location = new System.Drawing.Point(3, 3);
+            this.ramPanel.Name = "ramPanel";
+            this.ramPanel.Size = new System.Drawing.Size(394, 40);
+            this.ramPanel.TabIndex = 3;
+            // 
+            // ramCounterLabel
+            // 
+            this.ramCounterLabel.AutoSize = true;
+            this.ramCounterLabel.Location = new System.Drawing.Point(352, 4);
+            this.ramCounterLabel.Name = "ramCounterLabel";
+            this.ramCounterLabel.Size = new System.Drawing.Size(30, 13);
+            this.ramCounterLabel.TabIndex = 6;
+            this.ramCounterLabel.Text = "52 %";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(52, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "RAM";
+            // 
+            // ramProgress
+            // 
+            this.ramProgress.Location = new System.Drawing.Point(52, 3);
+            this.ramProgress.Name = "ramProgress";
+            this.ramProgress.Size = new System.Drawing.Size(286, 16);
+            this.ramProgress.Step = 100;
+            this.ramProgress.TabIndex = 2;
+            this.ramProgress.Value = 52;
+            // 
+            // ramPicture
+            // 
+            this.ramPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ramPicture.Image = ((System.Drawing.Image)(resources.GetObject("ramPicture.Image")));
+            this.ramPicture.Location = new System.Drawing.Point(0, -1);
+            this.ramPicture.Margin = new System.Windows.Forms.Padding(0);
+            this.ramPicture.Name = "ramPicture";
+            this.ramPicture.Size = new System.Drawing.Size(40, 40);
+            this.ramPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ramPicture.TabIndex = 1;
+            this.ramPicture.TabStop = false;
             // 
             // backgroundPanel
             // 
             this.backgroundPanel.BackColor = System.Drawing.Color.White;
-            this.backgroundPanel.Controls.Add(this.label8);
-            this.backgroundPanel.Controls.Add(this.label9);
+            this.backgroundPanel.Controls.Add(this.backgroundLabel);
+            this.backgroundPanel.Controls.Add(this.backgroundCounterLabel);
             this.backgroundPanel.Controls.Add(this.pictureBackground);
             this.backgroundPanel.Location = new System.Drawing.Point(143, 9);
             this.backgroundPanel.Name = "backgroundPanel";
             this.backgroundPanel.Size = new System.Drawing.Size(96, 100);
             this.backgroundPanel.TabIndex = 1;
+            this.backgroundPanel.Click += new System.EventHandler(this.backgroundPanel_Click);
             // 
-            // label8
+            // backgroundLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(11, 74);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 17);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Foreground";
+            this.backgroundLabel.AutoSize = true;
+            this.backgroundLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backgroundLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.backgroundLabel.Location = new System.Drawing.Point(11, 74);
+            this.backgroundLabel.Name = "backgroundLabel";
+            this.backgroundLabel.Size = new System.Drawing.Size(84, 17);
+            this.backgroundLabel.TabIndex = 4;
+            this.backgroundLabel.Text = "Background";
+            this.backgroundLabel.Click += new System.EventHandler(this.backgroundPanel_Click);
             // 
-            // label9
+            // backgroundCounterLabel
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(38, 50);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(24, 17);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "32";
+            this.backgroundCounterLabel.AutoSize = true;
+            this.backgroundCounterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backgroundCounterLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.backgroundCounterLabel.Location = new System.Drawing.Point(38, 50);
+            this.backgroundCounterLabel.Name = "backgroundCounterLabel";
+            this.backgroundCounterLabel.Size = new System.Drawing.Size(24, 17);
+            this.backgroundCounterLabel.TabIndex = 3;
+            this.backgroundCounterLabel.Text = "32";
+            this.backgroundCounterLabel.Click += new System.EventHandler(this.backgroundPanel_Click);
             // 
             // pictureBackground
             // 
@@ -431,50 +460,58 @@ namespace WindowsFormsApp1 {
             this.pictureBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBackground.TabIndex = 1;
             this.pictureBackground.TabStop = false;
+            this.pictureBackground.Click += new System.EventHandler(this.backgroundPanel_Click);
             // 
             // foregroundPannel
             // 
-            this.foregroundPannel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(148)))), ((int)(((byte)(244)))));
+            this.foregroundPannel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.foregroundPannel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.foregroundPannel.Controls.Add(this.label3);
-            this.foregroundPannel.Controls.Add(this.label2);
+            this.foregroundPannel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.foregroundPannel.Controls.Add(this.foregroundLabel);
+            this.foregroundPannel.Controls.Add(this.foregroundCounterLabel);
             this.foregroundPannel.Controls.Add(this.pictureForeground);
             this.foregroundPannel.Location = new System.Drawing.Point(19, 9);
             this.foregroundPannel.Name = "foregroundPannel";
             this.foregroundPannel.Size = new System.Drawing.Size(96, 100);
             this.foregroundPannel.TabIndex = 0;
+            this.foregroundPannel.Click += new System.EventHandler(this.foregroundPannel_Click);
             // 
-            // label3
+            // foregroundLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Foreground";
+            this.foregroundLabel.AutoSize = true;
+            this.foregroundLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.foregroundLabel.ForeColor = System.Drawing.Color.White;
+            this.foregroundLabel.Location = new System.Drawing.Point(9, 74);
+            this.foregroundLabel.Name = "foregroundLabel";
+            this.foregroundLabel.Size = new System.Drawing.Size(82, 17);
+            this.foregroundLabel.TabIndex = 2;
+            this.foregroundLabel.Text = "Foreground";
+            this.foregroundLabel.Click += new System.EventHandler(this.foregroundPannel_Click);
             // 
-            // label2
+            // foregroundCounterLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(36, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "32";
+            this.foregroundCounterLabel.AutoSize = true;
+            this.foregroundCounterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.foregroundCounterLabel.ForeColor = System.Drawing.Color.White;
+            this.foregroundCounterLabel.Location = new System.Drawing.Point(36, 50);
+            this.foregroundCounterLabel.Name = "foregroundCounterLabel";
+            this.foregroundCounterLabel.Size = new System.Drawing.Size(24, 17);
+            this.foregroundCounterLabel.TabIndex = 1;
+            this.foregroundCounterLabel.Text = "32";
+            this.foregroundCounterLabel.Click += new System.EventHandler(this.foregroundPannel_Click);
             // 
             // pictureForeground
             // 
             this.pictureForeground.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureForeground.Image = ((System.Drawing.Image)(resources.GetObject("pictureForeground.Image")));
-            this.pictureForeground.Location = new System.Drawing.Point(24, 4);
+            this.pictureForeground.Location = new System.Drawing.Point(28, 4);
             this.pictureForeground.Margin = new System.Windows.Forms.Padding(0);
             this.pictureForeground.Name = "pictureForeground";
             this.pictureForeground.Size = new System.Drawing.Size(40, 40);
             this.pictureForeground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureForeground.TabIndex = 0;
             this.pictureForeground.TabStop = false;
+            this.pictureForeground.Click += new System.EventHandler(this.foregroundPannel_Click);
             // 
             // TaskForm
             // 
@@ -482,15 +519,15 @@ namespace WindowsFormsApp1 {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(944, 441);
-            this.Controls.Add(this.topMainPanel);
             this.Controls.Add(this.leftSideNavPanel);
-            this.Controls.Add(this.mainContentPanel);
+            this.Controls.Add(this.mainTaskPanel);
             this.Name = "TaskForm";
             this.Text = "TasksStatistics";
-            this.mainContentPanel.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.TaskForm_Load);
+            this.Leave += new System.EventHandler(this.TaskForm_Leave);
             this.leftSideNavPanel.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.statsNav.ResumeLayout(false);
+            this.statsNav.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.scheduleNav.ResumeLayout(false);
             this.scheduleNav.PerformLayout();
@@ -498,13 +535,16 @@ namespace WindowsFormsApp1 {
             this.taskNav.ResumeLayout(false);
             this.taskNav.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.mainTaskPanel.ResumeLayout(false);
+            this.mainContentPanel.ResumeLayout(false);
             this.topMainPanel.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ramPicture)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
+            this.counterPanel.ResumeLayout(false);
+            this.cpuPanel.ResumeLayout(false);
+            this.cpuPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpuPicture)).EndInit();
+            this.ramPanel.ResumeLayout(false);
+            this.ramPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ramPicture)).EndInit();
             this.backgroundPanel.ResumeLayout(false);
             this.backgroundPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBackground)).EndInit();
@@ -516,8 +556,6 @@ namespace WindowsFormsApp1 {
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel mainContentPanel;
         private System.Windows.Forms.Panel leftSideNavPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel taskNav;
@@ -525,34 +563,36 @@ namespace WindowsFormsApp1 {
         private System.Windows.Forms.Panel scheduleNav;
         private System.Windows.Forms.Label scheduleLabel;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private Panel panel1;
+        private Panel statsNav;
         private Label label1;
         private PictureBox pictureBox3;
-        private Panel topMainPanel;
-        private Panel backgroundPanel;
-        private Panel foregroundPannel;
-        private Panel panel4;
-        private Panel panel6;
-        private Panel panel5;
+        private Panel mainTaskPanel;
+        private Panel mainContentPanel;
         private Panel panel11;
         private Panel panel10;
         private Panel panel9;
         private Panel panel8;
         private Panel panel7;
-        private PictureBox pictureBackground;
-        private PictureBox pictureForeground;
-        private Label label2;
-        private Label label3;
-        private PictureBox cpuPicture;
-        private PictureBox ramPicture;
-        private Label label6;
+        private Panel topMainPanel;
+        private Panel ramPanel;
+        private Label ramCounterLabel;
         private Label label5;
         private ProgressBar ramProgress;
-        private Label label7;
+        private PictureBox ramPicture;
+        private Panel cpuPanel;
+        private Label cpuCounterLabel;
         private Label label4;
         private ProgressBar cpuProgress;
-        private Label label8;
-        private Label label9;
+        private PictureBox cpuPicture;
+        private Panel counterPanel;
+        private Panel backgroundPanel;
+        private Label backgroundLabel;
+        private Label backgroundCounterLabel;
+        private PictureBox pictureBackground;
+        private Panel foregroundPannel;
+        private Label foregroundLabel;
+        private Label foregroundCounterLabel;
+        private PictureBox pictureForeground;
     }
 }
 
