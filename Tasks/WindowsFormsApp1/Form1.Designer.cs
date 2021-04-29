@@ -34,6 +34,7 @@ namespace WindowsFormsApp1 {
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskForm));
+            System.Windows.Forms.PictureBox secheduleSearchButton;
             this.leftSideNavPanel = new System.Windows.Forms.Panel();
             this.statsNav = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,11 +47,13 @@ namespace WindowsFormsApp1 {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mainTaskPanel = new System.Windows.Forms.Panel();
             this.mainContentPanel = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.processDetailListView = new System.Windows.Forms.ListView();
+            this.processNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pidHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.statusHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.usernameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.memoryHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.descriptionHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.topMainPanel = new System.Windows.Forms.Panel();
             this.counterPanel = new System.Windows.Forms.Panel();
             this.cpuPanel = new System.Windows.Forms.Panel();
@@ -71,6 +74,21 @@ namespace WindowsFormsApp1 {
             this.foregroundLabel = new System.Windows.Forms.Label();
             this.foregroundCounterLabel = new System.Windows.Forms.Label();
             this.pictureForeground = new System.Windows.Forms.PictureBox();
+            this.schedulePanel = new System.Windows.Forms.Panel();
+            this.dataGridViewSchedule = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.header = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.addTaskButton = new System.Windows.Forms.Button();
+            this.addTaskLabel = new System.Windows.Forms.Label();
+            this.scheduleSearch = new System.Windows.Forms.TextBox();
+            secheduleSearchButton = new System.Windows.Forms.PictureBox();
             this.leftSideNavPanel.SuspendLayout();
             this.statsNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -90,11 +108,17 @@ namespace WindowsFormsApp1 {
             ((System.ComponentModel.ISupportInitialize)(this.pictureBackground)).BeginInit();
             this.foregroundPannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureForeground)).BeginInit();
+            this.schedulePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSchedule)).BeginInit();
+            this.header.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(secheduleSearchButton)).BeginInit();
             this.SuspendLayout();
             // 
             // leftSideNavPanel
             // 
             this.leftSideNavPanel.BackColor = System.Drawing.Color.White;
+            this.leftSideNavPanel.Controls.Add(this.schedulePanel);
             this.leftSideNavPanel.Controls.Add(this.statsNav);
             this.leftSideNavPanel.Controls.Add(this.scheduleNav);
             this.leftSideNavPanel.Controls.Add(this.taskNav);
@@ -223,19 +247,15 @@ namespace WindowsFormsApp1 {
             // 
             this.mainTaskPanel.Controls.Add(this.mainContentPanel);
             this.mainTaskPanel.Controls.Add(this.topMainPanel);
-            this.mainTaskPanel.Location = new System.Drawing.Point(265, 0);
+            this.mainTaskPanel.Location = new System.Drawing.Point(265, 12);
             this.mainTaskPanel.Name = "mainTaskPanel";
-            this.mainTaskPanel.Size = new System.Drawing.Size(675, 440);
+            this.mainTaskPanel.Size = new System.Drawing.Size(675, 417);
             this.mainTaskPanel.TabIndex = 3;
             this.mainTaskPanel.Layout += new System.Windows.Forms.LayoutEventHandler(this.mainTaskPanel_Layout);
             // 
             // mainContentPanel
             // 
-            this.mainContentPanel.Controls.Add(this.panel11);
-            this.mainContentPanel.Controls.Add(this.panel10);
-            this.mainContentPanel.Controls.Add(this.panel9);
-            this.mainContentPanel.Controls.Add(this.panel8);
-            this.mainContentPanel.Controls.Add(this.panel7);
+            this.mainContentPanel.Controls.Add(this.processDetailListView);
             this.mainContentPanel.Location = new System.Drawing.Point(7, 139);
             this.mainContentPanel.Margin = new System.Windows.Forms.Padding(16);
             this.mainContentPanel.Name = "mainContentPanel";
@@ -243,55 +263,51 @@ namespace WindowsFormsApp1 {
             this.mainContentPanel.Size = new System.Drawing.Size(663, 291);
             this.mainContentPanel.TabIndex = 4;
             // 
-            // panel11
+            // processDetailListView
             // 
-            this.panel11.BackColor = System.Drawing.Color.Gray;
-            this.panel11.Location = new System.Drawing.Point(522, 15);
-            this.panel11.Margin = new System.Windows.Forms.Padding(4);
-            this.panel11.Name = "panel11";
-            this.panel11.Padding = new System.Windows.Forms.Padding(16);
-            this.panel11.Size = new System.Drawing.Size(232, 128);
-            this.panel11.TabIndex = 5;
+            this.processDetailListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.processNameHeader,
+            this.pidHeader,
+            this.statusHeader,
+            this.usernameHeader,
+            this.memoryHeader,
+            this.descriptionHeader});
+            this.processDetailListView.HideSelection = false;
+            this.processDetailListView.Location = new System.Drawing.Point(0, 0);
+            this.processDetailListView.Name = "processDetailListView";
+            this.processDetailListView.Size = new System.Drawing.Size(663, 275);
+            this.processDetailListView.TabIndex = 0;
+            this.processDetailListView.UseCompatibleStateImageBehavior = false;
+            this.processDetailListView.View = System.Windows.Forms.View.Details;
             // 
-            // panel10
+            // processNameHeader
             // 
-            this.panel10.BackColor = System.Drawing.Color.Gray;
-            this.panel10.Location = new System.Drawing.Point(271, 151);
-            this.panel10.Margin = new System.Windows.Forms.Padding(4);
-            this.panel10.Name = "panel10";
-            this.panel10.Padding = new System.Windows.Forms.Padding(16);
-            this.panel10.Size = new System.Drawing.Size(232, 128);
-            this.panel10.TabIndex = 4;
+            this.processNameHeader.Text = "Process Name";
+            this.processNameHeader.Width = 120;
             // 
-            // panel9
+            // pidHeader
             // 
-            this.panel9.BackColor = System.Drawing.Color.Gray;
-            this.panel9.Location = new System.Drawing.Point(271, 15);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4);
-            this.panel9.Name = "panel9";
-            this.panel9.Padding = new System.Windows.Forms.Padding(16);
-            this.panel9.Size = new System.Drawing.Size(232, 128);
-            this.panel9.TabIndex = 3;
+            this.pidHeader.Text = "PID";
             // 
-            // panel8
+            // statusHeader
             // 
-            this.panel8.BackColor = System.Drawing.Color.Gray;
-            this.panel8.Location = new System.Drawing.Point(19, 151);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4);
-            this.panel8.Name = "panel8";
-            this.panel8.Padding = new System.Windows.Forms.Padding(16);
-            this.panel8.Size = new System.Drawing.Size(232, 128);
-            this.panel8.TabIndex = 2;
+            this.statusHeader.Text = "Status";
+            this.statusHeader.Width = 100;
             // 
-            // panel7
+            // usernameHeader
             // 
-            this.panel7.BackColor = System.Drawing.Color.Gray;
-            this.panel7.Location = new System.Drawing.Point(19, 15);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(16);
-            this.panel7.Size = new System.Drawing.Size(232, 128);
-            this.panel7.TabIndex = 1;
+            this.usernameHeader.Text = "Username";
+            this.usernameHeader.Width = 100;
+            // 
+            // memoryHeader
+            // 
+            this.memoryHeader.Text = "Memory";
+            this.memoryHeader.Width = 100;
+            // 
+            // descriptionHeader
+            // 
+            this.descriptionHeader.Text = "Description";
+            this.descriptionHeader.Width = 200;
             // 
             // topMainPanel
             // 
@@ -513,14 +529,163 @@ namespace WindowsFormsApp1 {
             this.pictureForeground.TabStop = false;
             this.pictureForeground.Click += new System.EventHandler(this.foregroundPannel_Click);
             // 
+            // schedulePanel
+            // 
+            this.schedulePanel.BackColor = System.Drawing.Color.MistyRose;
+            this.schedulePanel.Controls.Add(this.dataGridViewSchedule);
+            this.schedulePanel.Controls.Add(this.header);
+            this.schedulePanel.Location = new System.Drawing.Point(47, 295);
+            this.schedulePanel.Margin = new System.Windows.Forms.Padding(2);
+            this.schedulePanel.Name = "schedulePanel";
+            this.schedulePanel.Size = new System.Drawing.Size(664, 422);
+            this.schedulePanel.TabIndex = 6;
+            this.schedulePanel.Visible = false;
+            // 
+            // dataGridViewSchedule
+            // 
+            this.dataGridViewSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Date,
+            this.ProId,
+            this.Column5});
+            this.dataGridViewSchedule.Location = new System.Drawing.Point(22, 86);
+            this.dataGridViewSchedule.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridViewSchedule.Name = "dataGridViewSchedule";
+            this.dataGridViewSchedule.RowHeadersWidth = 51;
+            this.dataGridViewSchedule.RowTemplate.Height = 24;
+            this.dataGridViewSchedule.Size = new System.Drawing.Size(596, 293);
+            this.dataGridViewSchedule.TabIndex = 4;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Name";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Start";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "End";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 125;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date";
+            this.Date.MinimumWidth = 6;
+            this.Date.Name = "Date";
+            this.Date.Width = 125;
+            // 
+            // ProId
+            // 
+            this.ProId.HeaderText = "ProId";
+            this.ProId.MinimumWidth = 6;
+            this.ProId.Name = "ProId";
+            this.ProId.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Description";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 125;
+            // 
+            // header
+            // 
+            this.header.BackColor = System.Drawing.Color.White;
+            this.header.Controls.Add(this.panel4);
+            this.header.Controls.Add(secheduleSearchButton);
+            this.header.Controls.Add(this.scheduleSearch);
+            this.header.Location = new System.Drawing.Point(22, 26);
+            this.header.Margin = new System.Windows.Forms.Padding(2);
+            this.header.Name = "header";
+            this.header.Size = new System.Drawing.Size(596, 39);
+            this.header.TabIndex = 3;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Orange;
+            this.panel4.Controls.Add(this.addTaskButton);
+            this.panel4.Controls.Add(this.addTaskLabel);
+            this.panel4.Location = new System.Drawing.Point(473, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(122, 37);
+            this.panel4.TabIndex = 4;
+            // 
+            // addTaskButton
+            // 
+            this.addTaskButton.BackColor = System.Drawing.Color.Orange;
+            this.addTaskButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addTaskButton.Location = new System.Drawing.Point(82, 2);
+            this.addTaskButton.Margin = new System.Windows.Forms.Padding(2);
+            this.addTaskButton.Name = "addTaskButton";
+            this.addTaskButton.Size = new System.Drawing.Size(38, 33);
+            this.addTaskButton.TabIndex = 5;
+            this.addTaskButton.Text = "+";
+            this.addTaskButton.UseVisualStyleBackColor = false;
+            // 
+            // addTaskLabel
+            // 
+            this.addTaskLabel.AutoSize = true;
+            this.addTaskLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addTaskLabel.Location = new System.Drawing.Point(13, 11);
+            this.addTaskLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.addTaskLabel.Name = "addTaskLabel";
+            this.addTaskLabel.Size = new System.Drawing.Size(71, 17);
+            this.addTaskLabel.TabIndex = 4;
+            this.addTaskLabel.Text = "Add task";
+            // 
+            // secheduleSearchButton
+            // 
+            secheduleSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("secheduleSearchButton.Image")));
+            secheduleSearchButton.Location = new System.Drawing.Point(436, 4);
+            secheduleSearchButton.Margin = new System.Windows.Forms.Padding(2);
+            secheduleSearchButton.Name = "secheduleSearchButton";
+            secheduleSearchButton.Size = new System.Drawing.Size(33, 32);
+            secheduleSearchButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            secheduleSearchButton.TabIndex = 1;
+            secheduleSearchButton.TabStop = false;
+            // 
+            // scheduleSearch
+            // 
+            this.scheduleSearch.Location = new System.Drawing.Point(2, 4);
+            this.scheduleSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.scheduleSearch.MinimumSize = new System.Drawing.Size(76, 33);
+            this.scheduleSearch.Multiline = true;
+            this.scheduleSearch.Name = "scheduleSearch";
+            this.scheduleSearch.Size = new System.Drawing.Size(430, 33);
+            this.scheduleSearch.TabIndex = 0;
+            this.scheduleSearch.Text = "Search ...";
+            this.scheduleSearch.UseWaitCursor = true;
+            // 
             // TaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(944, 441);
-            this.Controls.Add(this.leftSideNavPanel);
             this.Controls.Add(this.mainTaskPanel);
+            this.Controls.Add(this.leftSideNavPanel);
             this.Name = "TaskForm";
             this.Text = "TasksStatistics";
             this.Load += new System.EventHandler(this.TaskForm_Load);
@@ -551,6 +716,13 @@ namespace WindowsFormsApp1 {
             this.foregroundPannel.ResumeLayout(false);
             this.foregroundPannel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureForeground)).EndInit();
+            this.schedulePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSchedule)).EndInit();
+            this.header.ResumeLayout(false);
+            this.header.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(secheduleSearchButton)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -568,11 +740,6 @@ namespace WindowsFormsApp1 {
         private PictureBox pictureBox3;
         private Panel mainTaskPanel;
         private Panel mainContentPanel;
-        private Panel panel11;
-        private Panel panel10;
-        private Panel panel9;
-        private Panel panel8;
-        private Panel panel7;
         private Panel topMainPanel;
         private Panel ramPanel;
         private Label ramCounterLabel;
@@ -593,6 +760,27 @@ namespace WindowsFormsApp1 {
         private Label foregroundLabel;
         private Label foregroundCounterLabel;
         private PictureBox pictureForeground;
+        private ListView processDetailListView;
+        private ColumnHeader processNameHeader;
+        private ColumnHeader pidHeader;
+        private ColumnHeader statusHeader;
+        private ColumnHeader usernameHeader;
+        private ColumnHeader memoryHeader;
+        private ColumnHeader descriptionHeader;
+        private Panel schedulePanel;
+        private DataGridView dataGridViewSchedule;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Date;
+        private DataGridViewTextBoxColumn ProId;
+        private DataGridViewTextBoxColumn Column5;
+        private Panel header;
+        private Panel panel4;
+        private Button addTaskButton;
+        private Label addTaskLabel;
+        private TextBox scheduleSearch;
     }
 }
 
