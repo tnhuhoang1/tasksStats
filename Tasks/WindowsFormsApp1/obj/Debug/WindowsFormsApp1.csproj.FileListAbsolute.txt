@@ -8,3 +8,6 @@ E:\tasksStats\Tasks\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompi
 E:\tasksStats\Tasks\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 E:\tasksStats\Tasks\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 E:\tasksStats\Tasks\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.TaskForm.resources
+E:\tasksStats\Tasks\WindowsFormsApp1\bin\Debug\ASquare.WindowsTaskScheduler.dll
+E:\tasksStats\Tasks\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
+E:\tasksStats\Tasks\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.AddTaskForm.resources

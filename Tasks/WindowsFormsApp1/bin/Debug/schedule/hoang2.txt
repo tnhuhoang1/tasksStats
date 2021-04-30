@@ -1,0 +1,6 @@
+hoang2
+description
+C:\Users\Nhu Hoang\Desktop\RAM-icon.png
+5
+10
+True

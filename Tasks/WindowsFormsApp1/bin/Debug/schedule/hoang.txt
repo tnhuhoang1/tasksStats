@@ -1,0 +1,6 @@
+hoang
+desc
+C:\Users\Nhu Hoang\Desktop\background.png
+5
+20
+True
